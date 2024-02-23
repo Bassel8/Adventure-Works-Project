@@ -68,6 +68,7 @@ I then went to SSIS to design the needed packages and implement a full ETL proce
 
 
 
+
 After the tables in the staging layer were populated, I created 5 [Views](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Views.sql) there: 
 
 View [dbo].[Stg_view_Erp_Fact_InternetSales] which creates a join between SalesHeader, SalesOrderDetail and Product
@@ -79,6 +80,9 @@ View [dbo].[Stg_view_Erp_Fact_EmployeePayHistory] which creates a join between E
 View [dbo].[Stg_view_Erp_Product] which creates a join between Product, ProductSubCategory, and ProductCategory
 
 View [dbo].[Stg_view_Erp_Reseller] which creates a join between Customer and Store
+
+
+
 
 I also created 3 [Stored Procedures](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Stored%20Procedure.sql) in the data warehouse that will populate these 3 tables (DimProduct, DimReseller -using their views- and dim table -auto generated via script-)
 
