@@ -42,20 +42,20 @@ Based on the previous steps I modelled the data warehouse in a star schema as sh
 ![DW Diagram](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/0ad36b21-2328-4edc-8bc0-a246232048f9)
 
 ## Defining the physical model
-I then developed the following SQL script in MS SQL Server to create both the Staging layer and the Data warehouse (OLAP). 
-[DW Script]([AW Project/SQL Script/DW creation.sql](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/DW%20creation.sql))
-[STG layer Script]([AW Project/SQL Script/STG creation.sql](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/STG%20creation.sql))
+I then developed a SQL script in MS SQL Server to create both the Staging layer [STG layer Script](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/STG%20creation.sql) and the Data warehouse (OLAP) [DW Script](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/DW%20creation.sql). 
 
 ## Data integration (ETL)
 I then went to SSIS to design the needed packages and implement a full ETL process to populate the staging layer as shown below, 
 
 ![Employee](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/e5e4b04a-b993-42e8-bd78-4e6b8b7e96ba)
+
 ![Sales (Incremental)](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/ce3c139b-efb5-4c27-8076-4480dd297086)
+
 ![The rest](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/45a663a4-b122-4477-9036-f26f047357c0)
 
 
 
-After the tables in the staging layer were populated, I created 5 [Views](AW Project/SQL Script/Views.sql) there: 
+After the tables in the staging layer were populated, I created 5 [Views](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Views.sql) there: 
 
 View [dbo].[Stg_view_Erp_Fact_InternetSales] which creates a join between SalesHeader, SalesOrderDetail and Product
 View [dbo].[Stg_view_Erp_Fact_ResellerSales] which creates a join between SalesHeader, SalesOrderDetail, Product, Customer and Employee
@@ -63,18 +63,27 @@ View [dbo].[Stg_view_Erp_Fact_EmployeePayHistory] which creates a join between E
 View [dbo].[Stg_view_Erp_Product] which creates a join between Product, ProductSubCategory, and ProductCategory
 View [dbo].[Stg_view_Erp_Reseller] which creates a join between Customer and Store
 
-I also created 3 [Stored Procedures](AW Project/SQL Script/Stored Procedure.sql) in the data warehouse that will populate these 3 tables (DimProduct, DimReseller -using their views- and dim table -auto generated via script-)
+I also created 3 [Stored Procedures](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Stored%20Procedure.sql) in the data warehouse that will populate these 3 tables (DimProduct, DimReseller -using their views- and dim table -auto generated via script-)
+
 
 
 
 After that I went again to SSIS to populate the tables in the data warehouse as follows:
+
 ![DimCurrency](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/5ed8daee-bbca-48db-bb41-5073b68b3fb0)
+
 ![DimCustomer](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/9f742aea-5fa4-4cb1-97cf-e2ecf3c74b7e)
+
 ![DimEmployee (SCD)](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/9f3acfa5-2a24-40c3-b13a-7a18b38eb689)
+
 ![DimSales Territory](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/e869b396-acc5-4bad-ba21-07f1931362c2)
+
 ![Exec Stored Procedures (Dim Product, Date   Reseller](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/250bd0fe-ce21-46cd-9a69-36e32412eaf7)
+
 ![FactEmployeePay](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/442a623e-4e0f-4f3a-8c6d-91911a383615)
+
 ![FactInternetSales](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/e6476718-aef7-4f8f-8542-dcb454f983a4)
+
 ![FactResellerSales](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/2843427b-41a4-42c4-8252-fc23789d0a9f)
 
 ## Extracting insights
