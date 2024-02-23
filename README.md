@@ -43,11 +43,12 @@ Based on the previous steps I modelled the data warehouse in a star schema as sh
 
 ## Defining the physical model
 I then developed the following SQL script in MS SQL Server to create both the Staging layer and the Data warehouse (OLAP). 
-[DW Script](AW Project/SQL Script/DW creation.sql)
-[STG layer Script](AW Project/SQL Script/STG creation.sql)
+[DW Script]([AW Project/SQL Script/DW creation.sql](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/DW%20creation.sql))
+[STG layer Script]([AW Project/SQL Script/STG creation.sql](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/STG%20creation.sql))
 
 ## Data integration (ETL)
 I then went to SSIS to design the needed packages and implement a full ETL process to populate the staging layer as shown below, 
+
 ![Employee](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/e5e4b04a-b993-42e8-bd78-4e6b8b7e96ba)
 ![Sales (Incremental)](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/ce3c139b-efb5-4c27-8076-4480dd297086)
 ![The rest](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/45a663a4-b122-4477-9036-f26f047357c0)
