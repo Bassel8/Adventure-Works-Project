@@ -3,6 +3,7 @@
 ## Defining business process:
 
 First I skimmed through the data to understand its context, the business process, and to choose the business subjects that I will base my analysis on.
+
 I chose two subjects for my project (Sales & HR).
 
 ## Defining business KPIs: (data warehouse objectives)
@@ -38,7 +39,7 @@ In this step I defined the level of granularity to be on the individual transact
 
 ## Defining dim and fact tables:
 
-After that I made a list with the needed columns and tables that I will need to creat 3 fact tables and there dimensions -7 dims in total- :
+After that I made a list with the needed columns and tables that I will need to create 3 fact tables and their dimensions -7 dims in total- :
 
 FactInternetSales (DimCurrency, DimCustomer, DimDate, DimProduct, DimSalesTerritory)
 
@@ -69,7 +70,7 @@ I then went to SSIS to design the needed packages and implement a full ETL proce
 
 
 
-After the tables in the staging layer were populated, I created 5 [Views](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Views.sql) there: 
+After the tables in the staging layer were populated, I created 5 [Views](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Views.sql) there to create joins between the following tables to minimize the use of merge in SSIS as it will impact performance: 
 
 View [dbo].[Stg_view_Erp_Fact_InternetSales] which creates a join between SalesHeader, SalesOrderDetail and Product
 
@@ -109,7 +110,7 @@ After that I went again to SSIS to populate the tables in the data warehouse as 
 
 ## Extracting insights:
 
-After populating the data warehouse, I connected to power BI and designed a comprehensive live [Dashboard](https://app.powerbi.com/view?r=eyJrIjoiODQyMWRkY2YtNjAwNS00ZjIyLWE4YjYtMjM2MGFiZDcwY2YzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9) to communicate insights visually for the sales department, where i used dax to creat some additional custom measures.
+After populating the data warehouse, I connected to power BI and designed a comprehensive live [Dashboard](https://app.powerbi.com/view?r=eyJrIjoiODQyMWRkY2YtNjAwNS00ZjIyLWE4YjYtMjM2MGFiZDcwY2YzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9) to communicate insights visually for the sales department, where i used dax to create some additional custom measures.
 ![Sales Dashboard](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/8e29f111-e01c-46a4-a393-a94eccd727b7)
 
 
