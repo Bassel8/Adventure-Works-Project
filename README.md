@@ -70,7 +70,7 @@ I then went to SSIS to design the needed packages and implement a full ETL proce
 
 
 
-After the tables in the staging layer were populated, I created 5 [Views](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Views.sql) there to create joins between the following tables to minimize the use of merge in SSIS as it will impact performance: 
+After the tables in the staging layer were populated, I created 5 [Views](https://github.com/Bassel8/Adventure-Works-Project/blob/main/AW%20Project/SQL%20Script/Views.sql) there to create joins between the following tables to minimise the use of merge in SSIS as it will impact performance: 
 
 View [dbo].[Stg_view_Erp_Fact_InternetSales] which creates a join between SalesHeader, SalesOrderDetail and Product
 
