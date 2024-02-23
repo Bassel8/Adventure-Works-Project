@@ -20,7 +20,7 @@ I then defined KPIs for each business subject to establish the objectives for my
 
 6- Which region is generating the most revenue for us, and which country specifically in that region ?
 
-### Hr
+### Hr:
 1- Employees Attrition Rate by department ?
 
 2- Employee Age distribution ?
@@ -52,7 +52,10 @@ I then went to SSIS to design the needed packages and implement a full ETL proce
 ![Sales (Incremental)](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/ce3c139b-efb5-4c27-8076-4480dd297086)
 ![The rest](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/45a663a4-b122-4477-9036-f26f047357c0)
 
+
+
 After the tables in the staging layer were populated, I created 5 [Views](AW Project/SQL Script/Views.sql) there: 
+
 View [dbo].[Stg_view_Erp_Fact_InternetSales] which creates a join between SalesHeader, SalesOrderDetail and Product
 View [dbo].[Stg_view_Erp_Fact_ResellerSales] which creates a join between SalesHeader, SalesOrderDetail, Product, Customer and Employee
 View [dbo].[Stg_view_Erp_Fact_EmployeePayHistory] which creates a join between EmployeePayHistory, Employee and DimDate which i auto generated using a stored procedure
@@ -60,6 +63,8 @@ View [dbo].[Stg_view_Erp_Product] which creates a join between Product, ProductS
 View [dbo].[Stg_view_Erp_Reseller] which creates a join between Customer and Store
 
 I also created 3 [Stored Procedures](AW Project/SQL Script/Stored Procedure.sql) in the data warehouse that will populate these 3 tables (DimProduct, DimReseller -using their views- and dim table -auto generated via script-)
+
+
 
 After that I went again to SSIS to populate the tables in the data warehouse as follows:
 ![DimCurrency](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/5ed8daee-bbca-48db-bb41-5073b68b3fb0)
