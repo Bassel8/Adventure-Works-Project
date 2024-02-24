@@ -49,7 +49,7 @@ FactEmployeePay (DimEmployee, DimDate)
 
 ## Data warehouse modelling:
 
-Based on the previous steps I modelled the data warehouse in a star schema as shown below in the diagram:
+Based on the previous steps I modelled the data warehouse in a galaxy schema as shown below in the diagram:
 
 ![DW Diagram](https://github.com/Bassel8/Adventure-Works-Project/assets/128324838/0ad36b21-2328-4edc-8bc0-a246232048f9)
 
